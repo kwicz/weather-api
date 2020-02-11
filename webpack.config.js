@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: './src/main.js',
@@ -14,7 +15,8 @@ module.exports = {
     contentBase: './dist'
   },
   plugins: [
-  	new UglifyJsPlugin({ sourceMap: true }),
+    new Dotenv(),
+    new UglifyJsPlugin({ sourceMap: true }),
   	new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'Haiku Checker',
